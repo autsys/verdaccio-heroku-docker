@@ -15,7 +15,7 @@ oauth credentials as heroku config vars.
 creating the oauth app.
 
 - Add the following config vars to the heroku app. Either do this from the [heroku dashboard](https://devcenter.heroku.com/articles/config-vars#using-the-heroku-dashboard)
-or with the [cli](https://devcenter.heroku.com/articles/config-vars#using-the-heroku-cli).
+  or with the [cli](https://devcenter.heroku.com/articles/config-vars#using-the-heroku-cli).
 
 ```
 GITHUB_OAUTH_ORG
@@ -25,3 +25,18 @@ GITHUB_OAUTH_CLIENT_SECRET
 
 You should now be able to visit the heroku app and login with your github account by clicking the
 login button and going through the oauth flow.
+
+## Setup Yarn [v2](https://yarnpkg.com/getting-started/install)
+
+Create a `.yarnrc.yml` with the following configuration in your home directory, or a directory above the project you're working on.
+
+_WARNING_ this contains your auth token so don't commit it.
+
+```
+npmScopes:
+  autsys:
+    npmPublishRegistry: "url of verdaccio"
+    npmRegistryServer: "url of verdaccio"
+    npmAlwaysAuth: true
+    npmAuthToken: "get token after you login to portal"
+```
